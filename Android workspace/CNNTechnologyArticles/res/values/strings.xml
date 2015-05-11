@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CNN Technology Articles</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="news">News</string>
+    <string name="like">Likes</string>
+    <string name="clear">Clear All Likes</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_preview">PreviewActivity</string>
+    <string name="add">Add to Likes</string>
+
+</resources>

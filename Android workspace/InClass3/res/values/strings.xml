@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Uppercase Converter</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="next">Next</string>
+    <string name="exit">Exit</string>
+    <string name="enterNoteRequest">Enter your note below</string>
+    <string name="numberCharacters">Number of characters entered: 0</string>
+    <string name="title_activity_display">Display Activity</string>
+    <string name="back">Back</string>
+    <string name="uppercase">Uppercase via Activity</string>
+    <string name="yourNote">Your note:</string>
+    <string name="input">Input</string>
+    <string name="title_activity_capitalize">Capitalize Activity</string>
+    <string name="capitalize">Capitalize Activity</string>
+    <string name="capitalizeSend">Capitalize and Send Result</string>
+
+</resources>

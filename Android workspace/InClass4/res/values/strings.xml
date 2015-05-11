@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Threads</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="outputText">0.0000000</string>
+    <string name="generateNumberAsync">Generate Number (AsyncTask)</string>
+    <string name="generateNumberThread">Generate Number (Thread)</string>
+
+</resources>

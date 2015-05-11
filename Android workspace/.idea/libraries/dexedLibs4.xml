@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="dexedLibs4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/TipCalculator/bin/dexedLibs/android-support-v4-eb0ec5cc806f3b21ccbfcc840e7176ec.jar!/" />
+      <root url="jar://$PROJECT_DIR$/TipCalculator/bin/dexedLibs/appcompat_v7_2-1644c25c7447abd655bb2e3d6ea8f024.jar!/" />
+      <root url="jar://$PROJECT_DIR$/TipCalculator/bin/dexedLibs/android-support-v7-appcompat-31310bed3f755df6de0fa27d0c73f2db.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

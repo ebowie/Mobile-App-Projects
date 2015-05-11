@@ -1,0 +1,72 @@
+package spreed;
+
+import java.awt.EventQueue;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JTextPane;
+import javax.swing.border.EmptyBorder;
+
+public class SpreedApp extends JFrame {
+
+    private final JPanel contentPane;
+    private final JList list_1 = new JList();
+    WordSource wordList = new WordSource("page.txt");
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    SpreedApp frame = new SpreedApp();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Create the frame.
+     */
+    public SpreedApp() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 223);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        JTextPane textPane = new JTextPane();
+        textPane.setBounds(10, 11, 414, 112);
+        contentPane.add(textPane);
+
+        JSlider slider = new JSlider();
+        slider.setBounds(115, 151, 200, 23);
+        contentPane.add(slider);
+
+        JList list = new JList();
+        list.setBounds(230, 139, 1, 1);
+        contentPane.add(list);
+        list_1.setBounds(339, 151, 52, 23);
+        contentPane.add(list_1);
+
+        JButton btnNewButton = new JButton("New button");
+        btnNewButton.setBounds(10, 151, 27, 23);
+        contentPane.add(btnNewButton);
+
+        JButton btnNewButton_1 = new JButton("New button");
+        btnNewButton_1.setBounds(49, 151, 27, 23);
+        contentPane.add(btnNewButton_1);
+    }
+
+
+
+}

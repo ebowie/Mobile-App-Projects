@@ -1,0 +1,137 @@
+/*
+	a. Assignment 1.
+	b. User.java.
+	c. Evodie Kayembe and Eric Bowers.
+*/
+package blah;
+
+/**
+ * The Class User.
+ */
+public class User {
+	
+	/** The first name, middle initial and last name. */
+	private String firstName, middleInitial, lastName;
+	
+	/** The age. */
+	private int age;
+	
+	/** The city and state. */
+	private String city, state;
+	
+	
+	/**
+	 * Instantiates a new user.
+	 *
+	 * @param line the line
+	 */
+	public User(String line){
+		parseUser(line);
+	}
+	
+	/**
+	 * Parses the user.
+	 *
+	 * @param line the line
+	 */
+	private void parseUser(String line){
+		//should parse the user by splitting the line string (comma separated)
+		
+		String[] resultingTokens = line.split(",");
+		for (int i = 0; i < resultingTokens.length; i++){
+			resultingTokens[i] = resultingTokens[i].trim();
+		}
+		
+		firstName = resultingTokens[0];
+		middleInitial = resultingTokens[1];
+		lastName = resultingTokens[2];
+		age = Integer.parseInt(resultingTokens[3]);
+		city = resultingTokens[4]; 
+		state = resultingTokens[5];
+		
+		
+	}
+	
+	/**
+	 * User info.
+	 *
+	 * @return the string
+	 */
+	public String userInfo(){
+		return firstName+","+middleInitial+","+lastName+","+age+","+city+","+state;
+	}
+	
+	/**
+	 * Gets the first name.
+	 *
+	 * @return the first name
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * Gets the middle initial.
+	 *
+	 * @return the middle initial
+	 */
+	public String getMiddleInitial() {
+		return middleInitial;
+	}
+
+	/**
+	 * Gets the last name.
+	 *
+	 * @return the last name
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * Gets the age.
+	 *
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+
+	/**
+	 * Gets the city.
+	 *
+	 * @return the city
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * Gets the state.
+	 *
+	 * @return the state
+	 */
+	public String getState() {
+		return state;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof User)) return false;
+		User u = (User)o;
+		return ((u.firstName.equals(this.firstName)) && (u.middleInitial.equals(this.middleInitial)) 
+				&& (u.lastName.equals(this.lastName)) && (u.age == this.age) && (u.city.equals(this.city)) 
+				&& (u.state.equals(this.state)));
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		return this.firstName.hashCode();
+	}
+}

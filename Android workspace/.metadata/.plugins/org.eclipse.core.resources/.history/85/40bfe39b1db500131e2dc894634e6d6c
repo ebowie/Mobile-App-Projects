@@ -1,0 +1,18 @@
+package spreed;
+
+import java.io.IOException;
+
+public class Test {
+
+    public static void main(String[] args) throws IOException {
+        // TODO Auto-generated method stub
+        WordSource file = new WordSource("page.txt");
+        SpreedWord pivot = new SpreedWord();
+
+
+        System.out.print(pivot.getAlignedWord("finally", 25));
+
+
+    }
+
+}

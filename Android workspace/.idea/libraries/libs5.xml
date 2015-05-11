@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="libs5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Parser/libs/commons-io-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Parser/libs/android-support-v4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

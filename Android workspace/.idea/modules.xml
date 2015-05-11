@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CNNTech/CNNTech.iml" filepath="$PROJECT_DIR$/CNNTech/CNNTech.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CNNTechnologyArticles/CNNTechnologyArticles.iml" filepath="$PROJECT_DIR$/CNNTechnologyArticles/CNNTechnologyArticles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CelebrateScripture/CelebrateScripture.iml" filepath="$PROJECT_DIR$/CelebrateScripture/CelebrateScripture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Class Assignment1/Class Assignment1.iml" filepath="$PROJECT_DIR$/Class Assignment1/Class Assignment1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DatabaseNotesDemo/DatabaseNotesDemo.iml" filepath="$PROJECT_DIR$/DatabaseNotesDemo/DatabaseNotesDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FifaWorlCupPhotos/FifaWorlCupPhotos.iml" filepath="$PROJECT_DIR$/FifaWorlCupPhotos/FifaWorlCupPhotos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FifaWorldCupPhotos/FifaWorldCupPhotos.iml" filepath="$PROJECT_DIR$/FifaWorldCupPhotos/FifaWorldCupPhotos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IClass_HW1/IClass_HW1.iml" filepath="$PROJECT_DIR$/IClass_HW1/IClass_HW1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InClass2a/InClass2a.iml" filepath="$PROJECT_DIR$/InClass2a/InClass2a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InClass2b/InClass2b.iml" filepath="$PROJECT_DIR$/InClass2b/InClass2b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InClass3/InClass3.iml" filepath="$PROJECT_DIR$/InClass3/InClass3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InClass4/InClass4.iml" filepath="$PROJECT_DIR$/InClass4/InClass4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSONDemo/JSONDemo.iml" filepath="$PROJECT_DIR$/JSONDemo/JSONDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSONStreamDemo/JSONStreamDemo.iml" filepath="$PROJECT_DIR$/JSONStreamDemo/JSONStreamDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MapDemo/MapDemo.iml" filepath="$PROJECT_DIR$/MapDemo/MapDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Midterm_App/Midterm_App.iml" filepath="$PROJECT_DIR$/Midterm_App/Midterm_App.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Parser/Parser.iml" filepath="$PROJECT_DIR$/Parser/Parser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhotoGallary/PhotoGallary.iml" filepath="$PROJECT_DIR$/PhotoGallary/PhotoGallary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhotoGallery/PhotoGallery.iml" filepath="$PROJECT_DIR$/PhotoGallery/PhotoGallery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PullParser/PullParser.iml" filepath="$PROJECT_DIR$/PullParser/PullParser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SAXParserDemo/SAXParserDemo.iml" filepath="$PROJECT_DIR$/SAXParserDemo/SAXParserDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpeedReader/SpeedReader.iml" filepath="$PROJECT_DIR$/SpeedReader/SpeedReader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TheBasic/TheBasic.iml" filepath="$PROJECT_DIR$/TheBasic/TheBasic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tic-Tac-Toe/Tic-Tac-Toe.iml" filepath="$PROJECT_DIR$/Tic-Tac-Toe/Tic-Tac-Toe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TipCalculator/TipCalculator.iml" filepath="$PROJECT_DIR$/TipCalculator/TipCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XMLPullParserDemo/XMLPullParserDemo.iml" filepath="$PROJECT_DIR$/XMLPullParserDemo/XMLPullParserDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-support-v7-appcompat/android-support-v7-appcompat.iml" filepath="$PROJECT_DIR$/android-support-v7-appcompat/android-support-v7-appcompat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcompat_v7/appcompat_v7.iml" filepath="$PROJECT_DIR$/appcompat_v7/appcompat_v7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcompat_v7_2/appcompat_v7_2.iml" filepath="$PROJECT_DIR$/appcompat_v7_2/appcompat_v7_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcompat_v7_3/appcompat_v7_3.iml" filepath="$PROJECT_DIR$/appcompat_v7_3/appcompat_v7_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blah/blah.iml" filepath="$PROJECT_DIR$/blah/blah.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dict/dict.iml" filepath="$PROJECT_DIR$/dict/dict.iml" />
+      <module fileurl="file://$PROJECT_DIR$/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/google-play-services_lib/google-play-services_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hw1/hw1.iml" filepath="$PROJECT_DIR$/hw1/hw1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spreed/spreed.iml" filepath="$PROJECT_DIR$/spreed/spreed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/workspace.iml" filepath="$PROJECT_DIR$/workspace.iml" />
+    </modules>
+  </component>
+</project>
+

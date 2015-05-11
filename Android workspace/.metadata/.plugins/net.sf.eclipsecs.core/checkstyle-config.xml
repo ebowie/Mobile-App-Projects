@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<checkstyle-configurations file-format-version="5.0.0" default-check-configuration="Sun Checks">
+  <check-configuration name="My First Configuration " location="internal_config__1392853260489.xml" type="internal" description=""/>
+</checkstyle-configurations>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Change Layout" description="Change Layout" file="/FifaWorlCupPhotos/res/layout/activity_main.xml" flags="6" flatten="true" id="com.android.ide.eclipse.adt.refactoring.convert" proj="/FifaWorlCupPhotos" sel-end="542" sel-start="0" stamp="1403399470728" type="android.widget.LinearLayout"/>&#x0A;<refactoring comment="Change Layout" description="Change Layout" file="/FifaWorlCupPhotos/res/layout/activity_photo.xml" flags="6" flatten="true" id="com.android.ide.eclipse.adt.refactoring.convert" proj="/FifaWorlCupPhotos" sel-end="285" sel-start="0" stamp="1403403266731" type="android.widget.LinearLayout"/>
+</session>

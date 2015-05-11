@@ -1,0 +1,24 @@
+/*
+a. Assignment 1
+b. UserComparator.java
+c. Evodie Kayembe and Eric Bowers.
+
+*/
+
+package inClassAssignment1;
+
+import java.util.Comparator;
+
+
+/**
+ * The Class UserComparator.
+ */
+public class UserComparator implements Comparator<User> {
+	
+	/* (non-Javadoc)
+	 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+	 */
+	public int compare(User u1, User u2) {
+	      return (u1.getLastName().compareTo(u2.getLastName()));
+	}
+}

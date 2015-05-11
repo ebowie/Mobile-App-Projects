@@ -1,0 +1,124 @@
+package spreed;
+
+public class SpreedWord  {
+
+    public static int getPivot(String word) {
+        int pivot = 0;
+        if(word.length() == 1)
+        {
+            pivot = 0;
+        }
+        else if(word.length() <= 5)
+        {
+            pivot = 1;
+        }
+        else if(word.length() <= 9)
+        {
+            pivot = 2;
+        }
+        else if(word.length() <= 13)
+        {
+            pivot = 3;
+        }
+        else if(word.length() >= 14)
+        {
+            pivot = 4;
+        }
+        return pivot;
+    }
+
+    public static String getAlignedWord(String word, int length) {
+        SpreedWord pivot = new SpreedWord();
+        String alignWord = "";
+        double align;
+        double count =0;
+        double leftSpace;
+        double rightSpace;
+        int getPivot;
+
+        getPivot = pivot.getPivot(word);
+
+        align = length/2;
+        leftSpace= Math.ceil(align);
+        rightSpace=Math.ceil(align);
+        align = Math.ceil(align+0.01);
+        for(int x = 0; x<word.length();x++)
+        {
+            if(word.charAt(x) == word.charAt(getPivot) )
+            {
+                break;
+
+            }
+
+            count++;
+
+        }
+        leftSpace = leftSpace-count;
+
+
+
+        count =0;
+
+        for(int y = word.length()-1;y>0;y--)
+        {
+            if(word.charAt(y) == word.charAt(getPivot))
+            {
+                break;
+            }
+
+           count++;
+
+        }
+
+        rightSpace= rightSpace - count;
+        for(int i = 0; i<leftSpace;i++)
+        {
+            alignWord += " _ ";
+        }
+        alignWord+=word;
+        for(int j =0;j<rightSpace;j++)
+        {
+            alignWord+= " _ ";
+        }
+        return alignWord;
+    }
+
+    public static int getPauseLength(String word) {
+        int numWord = 0;
+        int wordCount = word.length();
+
+        for(int x = 0; x<wordCount;x++)
+        {
+         if(word.substring(x).equals(","))
+         {
+             numWord++;
+             wordCount = wordCount - 1;
+         }
+         else if(word.substring(x).equals(".") || word.substring(x).equals(";"))
+         {
+             numWord += 2;
+             wordCount = wordCount - 1;
+
+         }
+        }
+        if(wordCount <= 5)
+        {
+            numWord += 1;
+        }
+        else if(wordCount <=10)
+        {
+            numWord += 2;
+        }
+        else if(wordCount<=15)
+        {
+            numWord += 3;
+        }
+        else
+        {
+            numWord += 4;
+        }
+
+        return numWord;
+    }
+
+}

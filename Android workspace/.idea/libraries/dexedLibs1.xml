@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="dexedLibs1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JSONStreamDemo/bin/dexedLibs/android-support-v4-ab34ec6428c36275ebd5e1c4b54d22e0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JSONStreamDemo/bin/dexedLibs/android-support-v4-a935327452c4f100b32b3ac95f5fd1fb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JSONStreamDemo/bin/dexedLibs/commons-io-2.4-3d5a45aac7a3bde35daaffe3714526d8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/JSONStreamDemo/bin/dexedLibs/commons-io-2.4-b9760245ba63c353ad2633afc1a12c66.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

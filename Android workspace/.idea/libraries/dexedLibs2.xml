@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="dexedLibs2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/XMLPullParserDemo/bin/dexedLibs/android-support-v4-e355fd2c017a3940b02a1fc40b1ecd56.jar!/" />
+      <root url="jar://$PROJECT_DIR$/XMLPullParserDemo/bin/dexedLibs/commons-io-2.4-71d04918608e83427fcdd4995ecb42d9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

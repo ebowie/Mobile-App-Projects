@@ -1,0 +1,151 @@
+/*
+	a. Assignment # 1.
+	b. PartTwo.java
+	c. Evodie Kayembe and Eric Bowers.
+*/
+package blah;
+
+import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+
+
+
+/**
+ * The Class PartTwo.
+ */
+public class PartTwo {
+	
+	/** The words. */
+	private LinkedList<String> words;
+	
+	/** The repeated words. */
+	private HashMap<String, Integer> repeatedWords;
+	
+	/**
+	 * Instantiates a new part two.
+	 */
+	public PartTwo(){
+		words = new LinkedList<String>();
+		repeatedWords = new HashMap<String, Integer>();
+		
+		
+	}
+	
+	/**
+	 * Gets the key from value.
+	 *
+	 * @param value the value
+	 * @return the key from value
+	 */
+	public Object getKeyFromValue(Object value) {
+	    for (Object o : repeatedWords.keySet()) {
+	      if (repeatedWords.get(o).equals(value)) {
+	    	 Object newKey = o;
+	    	 repeatedWords.remove(o);  
+	        return newKey;
+	      }
+	    }
+	    return null;
+	  }
+	  
+	/**
+	 * Gets the repeated words.
+	 *
+	 * @return the repeated words
+	 */
+	public HashMap<String, Integer> getRepeatedWords(){
+		return repeatedWords;
+	}
+	
+	/**
+	 * Read file at path.
+	 *
+	 * @param filename the filename
+	 */
+	public void readFileAtPath(String filename) {
+		// Lets make sure the file path is not empty or null
+		if (filename == null || filename.isEmpty()) {
+			System.out.println("Invalid File Path");
+			return;
+		}
+		
+		String filePath = System.getProperty("user.dir") + "/" + filename;
+		BufferedReader inputStream = null;
+		// We need a try catch block so we can handle any potential IO errors
+		try {
+			try {
+				inputStream = new BufferedReader(new FileReader(filePath));
+				String lineContent = null;
+				// Loop will iterate over each line within the file.
+				// It will stop when no new lines are found.
+				while ((lineContent = inputStream.readLine()) != null) {
+					words.add(lineContent);
+					if (words.contains(lineContent)){
+						if(repeatedWords.containsKey(lineContent)){
+							repeatedWords.put(lineContent, repeatedWords.get(lineContent) + 1);
+						}
+						else{
+							repeatedWords.put(lineContent,1);
+						}
+					}
+				}
+			}
+			// Make sure we close the buffered reader.
+			finally {
+				if (inputStream != null)
+					inputStream.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}// end of method
+	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
+	public static void main(String[] args) {
+		// Include implementation for Part 2, and create all the required classes.
+		PartTwo execute = new PartTwo();
+		execute.readFileAtPath("words.txt");  //read from file and create key/value pairs of words and # of repeats
+		
+		HashMap<String, Integer> map = execute.getRepeatedWords();
+		HashMap<String, Integer> hmap = new HashMap<String, Integer>(map); //make copy of repeated words in hashmap
+		
+		Collection<Integer> repeats = execute.getRepeatedWords().values(); //get # of repeats so that we can order them
+		Integer[] arr = repeats.toArray(new Integer[0]); // create array out of # of repeats values
+		List<Integer> list = Arrays.asList(arr); // then create a list from the array
+		Collections.sort(list, Collections.reverseOrder()); //sort the list in descending order
+		
+		List<String> newList = new LinkedList<String>(); //new list to hold the words alone
+		System.out.println("Here are the top 10 repeated words ordered in descending order of the number of repeats: ");
+		System.out.println();
+		
+		//get and print the top 10 repeated words ordered by # of repeats 
+		for(int k=0; k< 10;k++){
+			Object key = execute.getKeyFromValue(list.get(k)); //get key given a value
+			newList.add((String)key); //store keys in new list 
+			System.out.println("Word: "+ key + "     # of times detected: "+list.get(k));
+		}
+		
+		Collections.sort(newList, Collections.reverseOrder()); //sort list containing top 10 keys alone
+		System.out.println();
+		System.out.println("Here are the top 10 repeated words ordered in descending order of the words: ");
+		System.out.println();
+		
+		//print repeated words and # of repeats ordered by the words themselves
+		for(int k=0; k< 10;k++){
+			System.out.println("Word: "+ newList.get(k) + "      # of times detected: "+hmap.get(newList.get(k)));
+		}
+		
+		
+	}
+}

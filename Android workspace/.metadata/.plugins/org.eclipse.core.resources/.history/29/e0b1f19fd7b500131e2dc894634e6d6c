@@ -1,0 +1,178 @@
+package spreed;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JTextField;
+import javax.swing.Timer;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+public class SpreedApp extends JFrame {
+
+    private final JPanel contentPane;
+    private final JTextField textField;
+    private static WordSource wordList;
+    private static SpreedWord speedList;
+    private static int count = 0;
+    private static int count2 = 0;
+    private static Timer timer;
+    private static boolean playing = false;
+    /**
+     * Launch the application.
+     * @throws FileNotFoundException
+     */
+    public static void main(String[] args)throws IOException{
+        wordList = new WordSource("page.txt");
+        System.out.print(wordList.getSize());
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    SpreedApp frame = new SpreedApp();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Create the frame.
+     */
+    public SpreedApp()throws IOException {
+
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 223);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        final JSlider slider = new JSlider();
+        slider.setBounds(155, 151, 200, 23);
+        slider.setValue(0);
+        slider.setMaximum(wordList.getSize());
+        slider.addChangeListener(new SliderListener());
+        contentPane.add(slider);
+
+
+        JList list = new JList();
+        list.setBounds(230, 139, 1, 1);
+        contentPane.add(list);
+
+        JButton reset = new JButton("<<");
+        reset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+
+                    timer.stop();
+
+                    textField.setText("Push Play to Start.");
+                    slider.setValue(0);
+                    count = 0;
+                    playing = false;
+
+            }
+        });
+        reset.setBounds(10, 151, 56, 23);
+        contentPane.add(reset);
+
+        timer = new Timer(0, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                slider.setValue(count);
+                textField.setText(speedList.getAlignedWord(wordList.getWord(count), 25));
+                count++;
+
+
+
+
+
+                if(count == wordList.getSize())
+                {
+                    timer.stop();
+
+                }
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+        JButton play = new JButton(">/| |");
+        play.addActionListener(new ActionListener() {
+
+
+
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+
+
+
+                playing = !playing;
+                if(playing)
+                {
+                timer.start();
+                timer.setDelay(500);
+
+                }
+                else
+                {
+                    timer.stop();
+
+                }
+
+
+
+            }
+        });
+        play.setBounds(89, 151, 56, 23);
+        contentPane.add(play);
+
+
+        textField = new JTextField("Push Play to Start.");
+        textField.setFont(new Font("Tahoma", Font.PLAIN, 50));
+        textField.setBounds(10, 11, 414, 117);
+        contentPane.add(textField);
+        textField.setColumns(10);
+
+        JComboBox comboBox = new JComboBox();
+        comboBox.setBounds(365, 151, 59, 23);
+        contentPane.add(comboBox);
+
+    }
+    public static void setWord(int index)
+    {
+        count = index;
+    }
+}
+class SliderListener implements ChangeListener {
+    public void stateChanged(ChangeEvent e) {
+        JSlider source = (JSlider)e.getSource();
+        SpreedApp.setWord(source.getValue());
+           
+        
+    }
+}

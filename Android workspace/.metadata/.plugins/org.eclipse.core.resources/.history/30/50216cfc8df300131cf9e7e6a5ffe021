@@ -1,0 +1,320 @@
+package com.EricBowers.photogallary;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.MotionEvent;
+import android.widget.ImageView;
+
+public class PhotoActivity extends Activity {
+    ProgressDialog progressDialog;
+    ImageView image,image2;
+    Timer timer;
+    TimerTask task;
+    int count = 0;
+    int count2 =0;
+    int delay = 2000;
+    String[] listArray = null;
+    private GestureDetector gestureDetector;
+
+    @SuppressWarnings("deprecation")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_photo);
+        final Handler handler = new Handler();
+
+            gestureDetector = new GestureDetector(
+                    new SwipeGestureDetector());
+
+
+        String list = getIntent().getStringExtra("URL");
+         listArray =list.split("\\s+");
+        image = (ImageView)findViewById(R.id.imageView1);
+
+        image.setTag(listArray[count]);
+
+        if(getIntent().getStringExtra("counter").equals("0")) {
+            new DoWork2().execute(image);
+        } else if(getIntent().getStringExtra("counter").equals("1")) {
+
+            new DoWork3().execute(image);
+
+            
+        }
+
+
+
+    }
+
+
+
+    public class myTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+            image.setTag(listArray[++count]);
+            new DoWork3().execute(image);
+
+        }
+
+    }
+
+
+
+    public boolean onInterceptTouchEvent (MotionEvent event){
+
+
+        return true;
+
+    }
+
+        @Override
+        public boolean onTouchEvent(MotionEvent event) {
+
+
+
+           if (gestureDetector.onTouchEvent(event)) {
+
+                  return true;
+
+
+            }
+            return super.onTouchEvent(event);
+          }
+
+          private void onLeftSwipe() {
+            // Do something
+              if(listArray.length == ++count){
+                  finish();
+              }else{
+
+              // TODO Auto-generated method stub
+              image.setTag(listArray[++count]);
+              new DoWork2().execute(image);
+
+              }
+          }
+
+          private void onRightSwipe() {
+            // Do something
+
+
+
+              // TODO Auto-generated method stub
+              image.setTag(listArray[--count]);
+              new DoWork2().execute(image);
+
+
+          }
+
+          // Private class for gestures
+          private class SwipeGestureDetector
+                  extends SimpleOnGestureListener {
+            // Swipe properties, you can change it to make the swipe
+            // longer or shorter and speed
+            private static final int SWIPE_MIN_DISTANCE = 120;
+            private static final int SWIPE_MAX_OFF_PATH = 200;
+            private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2,
+                                 float velocityX, float velocityY) {
+              try {
+                float diffAbs = Math.abs(e1.getY() - e2.getY());
+                float diff = e1.getX() - e2.getX();
+
+                if (diffAbs > SWIPE_MAX_OFF_PATH)
+                  return false;
+
+                // Left swipe
+                if (diff > SWIPE_MIN_DISTANCE
+                && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    if(getIntent().getStringExtra("counter").equals("0")) {
+                   PhotoActivity.this.onLeftSwipe();
+                    }
+                // Right swipe
+                } else if (-diff > SWIPE_MIN_DISTANCE
+                && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    if(getIntent().getStringExtra("counter").equals("0")) {
+                  PhotoActivity.this.onRightSwipe();
+                    }
+                }
+              } catch (Exception e) {
+                Log.e("YourActivity", "Error on gestures");
+              }
+              return false;
+            }
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public class DoWork2 extends AsyncTask<ImageView, Void, Bitmap> {
+        ImageView imageView = null;
+        @Override
+        protected Bitmap doInBackground(ImageView... imageView) {
+            // TODO Auto-generated method stub
+            this.imageView = imageView[0];
+
+
+
+            return download_image((String)this.imageView.getTag());
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(PhotoActivity.this);
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("Retrieving image URL's");
+            progressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            // TODO Auto-generated method stub
+            super.onPostExecute(result);
+            imageView.setImageBitmap(result);
+            timer.schedule(task,delay,1500);
+            progressDialog.dismiss();
+        }
+
+      private Bitmap download_image(String url) {
+
+          Bitmap bm = null;
+          try {
+              URL url1 = new URL(url);
+              HttpURLConnection con = (HttpURLConnection)url1.openConnection();
+              con.setRequestMethod("GET");
+              con.connect();
+              int statusCode = con.getResponseCode();
+              if (statusCode == HttpURLConnection.HTTP_OK) {
+                  InputStream in = con.getInputStream();
+                   bm = BitmapFactory.decodeStream(in);
+
+
+
+              }else {
+                  Log.d("demo", "Did not enter if statement");
+              }
+
+          } catch (MalformedURLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+          } catch (ProtocolException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+          } catch (IOException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+          }
+        return bm;
+
+
+
+      }
+
+
+}
+
+    public class DoWork3 extends AsyncTask<ImageView, Void, Bitmap> {
+        ImageView imageView = null;
+        @Override
+        protected Bitmap doInBackground(ImageView... imageView) {
+            // TODO Auto-generated method stub
+            this.imageView = imageView[0];
+
+
+
+            return download_image((String)this.imageView.getTag());
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            // TODO Auto-generated method stub
+            super.onPostExecute(result);
+            imageView.setImageBitmap(result);
+
+        }
+
+      private Bitmap download_image(String url) {
+
+          Bitmap bm = null;
+          try {
+              URL url1 = new URL(url);
+              HttpURLConnection con = (HttpURLConnection)url1.openConnection();
+              con.setRequestMethod("GET");
+              con.connect();
+              int statusCode = con.getResponseCode();
+              if (statusCode == HttpURLConnection.HTTP_OK) {
+                  InputStream in = con.getInputStream();
+                   bm = BitmapFactory.decodeStream(in);
+
+
+
+              }else {
+                  Log.d("demo", "Did not enter if statement");
+              }
+
+          } catch (MalformedURLException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+          } catch (ProtocolException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+          } catch (IOException e) {
+              // TODO Auto-generated catch block
+              e.printStackTrace();
+          }
+        return bm;
+
+
+
+      }
+
+
+}
+}
